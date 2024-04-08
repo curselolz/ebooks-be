@@ -6,9 +6,12 @@ import {
 const client = new MongoClient();
 await client.connect("mongodb://127.0.0.1:27017");
 
-const dbname :string = "BOOKS_COLLECTION"; 
+const dbname :string = "BLOG"; 
 const db = client.database(dbname);
 
-const Books = db.collection("books");
+const Users = db.collection("users");
+const Posts = db.collection("posts");
+const Profile = db.collection("profile");
+const Comments = db.collection("comments");
 
-export { db, Books };
+export { db, Users, Posts, Profile, Comments };

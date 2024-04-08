@@ -1,8 +1,8 @@
-import { Books } from '../models/index.ts';
+import { Posts } from '../models/index.ts';
 
-export const getBooks = async (context: RouterContext) => {
+export const getPosts = async (context: RouterContext) => {
   try {
-    const books = await Books.find();
+    const books = await Posts.find();
     const data = await books.toArray();
     if (data.length > 0) {
       context.response.body = data;
@@ -12,7 +12,7 @@ export const getBooks = async (context: RouterContext) => {
     }
   } catch (e) {
     context.response.body = { error: "Internal server error" };
-    context.response.status = 500; // Internal Server Error
+    context.response.status = 500;
     console.error(e);
   }
 };

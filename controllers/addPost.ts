@@ -1,9 +1,9 @@
 import { v1 } from "https://deno.land/std@0.91.0/uuid/mod.ts";
 
 
-import { Books } from '../models/index.ts';
+import { Posts } from '../models/index.ts';
 
-export const addBook = async(context: any) => {
+export const addPost = async(context: any) => {
   try{
     let body: any = await context.request.body();
     let uniqid = v1.generate();
@@ -21,7 +21,7 @@ export const addBook = async(context: any) => {
       year,
     } = data;
 
-    const book = await Books.insertOne({
+    const book = await Posts.insertOne({
       id: uniqid,
       author,
       name,
